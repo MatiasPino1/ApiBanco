@@ -41,6 +41,6 @@ server.use((error,req,res,next)=>{
 })
 
 
-server.listen(PORT,(err)=>{
-    err? console.log(err) : console.log(`Servidor corriendo en http://localhost:${PORT}`)
+server.listen(3010,(err)=>{
+    err? console.log(err) : console.log(`Servidor corriendo en http://localhost:${3010}`)
 })
