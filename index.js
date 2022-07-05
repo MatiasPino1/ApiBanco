@@ -15,7 +15,8 @@ server.set("views",path.join(__dirname,"./views"))
 server.engine("hbs",hbs.engine({extname:"hbs"}))
 
 server.get("/",(req,res)=>{
-    res.send("Probando Api")
+    res.send(`<h2>Bienvenido a sudBank</h2>
+    <h3>Su banco de confianza</h3>`)
 })
 
 server.use("/users",require("./users/usersRoute"))
