@@ -3,7 +3,7 @@ const server=express()
 const hbs = require("express-handlebars")
 const path = require("path")
 require("dotenv").config()
-const PORT = process.env.port || 3010
+const PORT = process.env.PORT
 server.use(express.json()) 
 server.use(express.urlencoded({extended:true})) 
 server.use(express.static("storage"))
@@ -41,6 +41,6 @@ server.use((error,req,res,next)=>{
 })
 
 
-server.listen(3010,(err)=>{
-    err? console.log(err) : console.log(`Servidor corriendo en http://localhost:${3010}`)
+server.listen(PORT,(err)=>{
+    err? console.log(err) : console.log(`Servidor corriendo en http://localhost:${PORT}`)
 })
