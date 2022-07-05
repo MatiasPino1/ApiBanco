@@ -3,7 +3,7 @@ const server=express()
 const hbs = require("express-handlebars")
 const path = require("path")
 require("dotenv").config()
-const PORT = process.env.port
+const PORT = process.env.port || 3010
 server.use(express.json()) 
 server.use(express.urlencoded({extended:true})) 
 server.use(express.static("storage"))
