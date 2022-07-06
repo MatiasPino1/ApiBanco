@@ -1,4 +1,5 @@
 const express= require ("express")
+const cors = require("cors")
 const server=express()
 const hbs = require("express-handlebars")
 const path = require("path")
@@ -6,6 +7,7 @@ require("dotenv").config()
 const PORT = process.env.PORT
 server.use(express.json()) 
 server.use(express.urlencoded({extended:true})) 
+server.use(cors())
 server.use(express.static("storage"))
 
 server.use("/css",express.static(path.join(__dirname,`node_modules/bootstrap/dist/css`)))
