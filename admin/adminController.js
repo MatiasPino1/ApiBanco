@@ -51,7 +51,7 @@ else{
 if(req.params.savingsBank.length = 8) {
         const dbResponse = await deleteOne(+req.params.savingsBank)
         if (dbResponse instanceof Error) return  next(dbResponse); 
-        dbResponse.affectedRows ? res.status(204).json("cuenta eliminada").end() : next()
+        dbResponse.affectedRows ? res.status(204).end() : next()
     }
 } 
 
