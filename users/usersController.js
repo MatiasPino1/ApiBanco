@@ -56,7 +56,7 @@ else {
 }
 if(req.params.savingsBank.length = 8) {
     const hashedPassword = await encrypt(req.body.password)
-    const image = `${public_url}/${req.file.filename}`
+    const image = `${public_url}/${req.file}`
     const user = {
         username:req.body.username,
         password:hashedPassword,
