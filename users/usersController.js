@@ -25,10 +25,11 @@ const login = async(req,res,next) => {
         const user = {
             id:dbResponse[0].id,
             name:dbResponse[0].username,
-            email:dbResponse[0].email
+            email:dbResponse[0].email,
+            savingsBank:dbResponse[0].savingsBank
           } 
           const token = await tokenSign(user, "1h")
-    res.cookie("token",token).status(200).json({message:"Logged in,if you want to add or withdraw money from the bank you need to copy this JWT",JWT: token,name:user.name,email:user.email})
+    res.cookie("token",token).status(200).json({message:"Logged in,if you want to add or withdraw money from the bank you need to copy this JWT",JWT: token,name:user.name,email:user.email,savingsBank:user.savingsBank})
     }
     else{
         let error = new Error("Unauthorized")
