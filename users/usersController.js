@@ -4,7 +4,6 @@ const {matchedData} = require("express-validator")
 const nodemailer = require("nodemailer")
 const {tokenSign,tokenVerify}= require("../utils/handleJWT")
 const public_url = process.env.public_url
-const pedro = null
 const register = async(req,res,next) => {
     const cleanBody= matchedData(req)
     const image = `${public_url}/${req.file.filename}`
