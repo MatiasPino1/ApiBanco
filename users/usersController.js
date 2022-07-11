@@ -7,7 +7,7 @@ const public_url = process.env.public_url
 
 const register = async(req,res,next) => {
     const cleanBody= matchedData(req)
-    const image = `${public_url}/${req.file}`
+    const image = `${public_url}/${req.file.filename}`
     const hashedPassword = await encrypt(req.body.password)
     const dbResponse = await newUser({...cleanBody,password:hashedPassword,file:image})
     if  (dbResponse instanceof Error) return next(dbResponse)
