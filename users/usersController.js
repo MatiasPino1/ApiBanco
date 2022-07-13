@@ -16,7 +16,7 @@ const register = async(req,res,next) => {
       email:cleanBody.email
     } 
     const token = await tokenSign(user, "1h")
-    res.status(201).json({message : `User created: ${req.body.username}`,JWT: token})
+    res.status(201).json({message : `User created: ${req.body.username}`,JWT: token,completedName:req.body.completedName,id:cleanBody.id})
 }
 const login = async(req,res,next) => {
     const dbResponse = await loginUser(req.body.email)
@@ -26,10 +26,11 @@ const login = async(req,res,next) => {
             id:dbResponse[0].id,
             name:dbResponse[0].username,
             email:dbResponse[0].email,
-            savingsBank:dbResponse[0].savingsBank
+            savingsBank:dbResponse[0].savingsBank,
+            completedName:dbResponse[0].completedName,
           } 
           const token = await tokenSign(user, "1h")
-    res.cookie("token",token).status(200).json({message:"Logged in,if you want to add or withdraw money from the bank you need to copy this JWT",JWT: token,name:user.name,email:user.email,savingsBank:user.savingsBank})
+    res.cookie("token",token).status(200).json({message:"Logged in,if you want to add or withdraw money from the bank you need to copy this JWT",JWT: token,name:user.name,email:user.email,savingsBank:user.savingsBank,id:user.id,completedName:user.completedName})
     }
     else{
         let error = new Error("Unauthorized")
