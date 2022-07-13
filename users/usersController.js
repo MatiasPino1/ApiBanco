@@ -88,7 +88,7 @@ const forgot = async(req,res,next)=>{
         email:dbResponse[0].email
     }
     const token = await tokenSign(user,`15m`)
-    const link = `${public_url}/users/reset/${token}`
+    const link = `${public_url}users/reset/${token}`
     let mailDetails = {
         from:"sudBank@gmail.com",
         to:user.email,
